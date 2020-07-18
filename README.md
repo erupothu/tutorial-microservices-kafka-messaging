@@ -22,3 +22,12 @@ Check message in kafka-console-consumer or spring-cloud-stream-consumer log <br>
 or <br>
 
 spring-cloud-stream-consumer console LOG <br>
+
+## install from docker
+docker-compose -f docker-compose.yml up -d \
+docker ps \
+docker exec -it kafka /bin/sh 
+cd opt/kafka_2.12-2.4.0 \
+./bin/kafka-topics --create --zookeeper zookeeper:2181 --replication-factor 1 --partitions 1 --topic mytopic 
+
+./bin/kafka-topics --list --zookeeper zookeeper:2181
